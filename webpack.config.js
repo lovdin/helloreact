@@ -4,7 +4,7 @@ const webpack = require('webpack');
 module.exports = {
   entry: {
     hello: path.join(__dirname, './src/js/hello.js'),
-    vendor: ['react', 'react-dom']
+    react: ['react', 'react-dom']
   },
   module: {
     rules: [{
@@ -18,11 +18,11 @@ module.exports = {
   output: {
     path: path.join(__dirname, './dist/js'),
     filename: '[name].[chunkhash:7].js',
-    publicPath: path.join(__dirname, './public')
+    publicPath: path.join(__dirname, './static')
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
+      name: 'react',
       minChunks: Infinity
     })
   ]
