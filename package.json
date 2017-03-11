@@ -6,6 +6,7 @@
   "scripts": {
     "babel": "babel src/js -d dist/js",
     "pack": "webpack",
+    "pack-prod": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,7 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: path.join(__dirname, './src/js/hello.js'),
+  entry: {
+    hello: path.join(__dirname, './src/js/hello.js'),
+    vendor: ['react', 'react-dom']
+  },
   module: {
     rules: [{
       test: /\.js$/,
@@ -13,7 +17,13 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './dist/js'),
-    filename: '[name].bundle.js',
+    filename: '[name].[chunkhash:7].js',
     publicPath: path.join(__dirname, './public')
-  }
+  },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      minChunks: Infinity
+    })
+  ]
 };
