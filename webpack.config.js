@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -17,13 +18,20 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, './dist/js'),
-    filename: '[name].[chunkhash:7].js',
-    publicPath: path.join(__dirname, './static')
+    filename: '[name].[chunkhash:7].js'
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'react',
       minChunks: Infinity
+    }),
+    new HtmlWebpackPlugin({
+      filename: '../html/hello.html',
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true
+      },
+      template: path.join(__dirname, './src/html/hello.html')
     })
   ]
 };
