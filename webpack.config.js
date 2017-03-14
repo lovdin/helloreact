@@ -4,14 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    hello: path.join(__dirname, './src/js/hello.js'),
-    tick: path.join(__dirname, './src/js/tick.js'),
-    comment: path.join(__dirname, './src/js/comment.js'),
+    hello: path.join(__dirname, './src/js/hello.jsx'),
+    tick: path.join(__dirname, './src/js/tick.jsx'),
+    comment: path.join(__dirname, './src/js/comment.jsx'),
     react: ['react', 'react-dom']
   },
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.(jsx|js)$/,
       exclude: /(node_modules)/,
       use: [{
         loader: 'babel-loader'
