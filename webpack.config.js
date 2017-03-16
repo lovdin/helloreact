@@ -7,6 +7,8 @@ module.exports = {
     hello: path.join(__dirname, './src/js/hello.jsx'),
     tick: path.join(__dirname, './src/js/tick.jsx'),
     comment: path.join(__dirname, './src/js/comment.jsx'),
+    toggle: path.join(__dirname, './src/js/toggle.jsx'),
+    loginout: path.join(__dirname, './src/js/loginout.jsx'),
     react: ['react', 'react-dom']
   },
   module: {
@@ -51,6 +53,26 @@ module.exports = {
       chunks: ['comment', 'react'],
       filename: '../html/comment.html',
       title: 'Comment',
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true
+      },
+      template: path.join(__dirname, './src/html/base.html')
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['toggle', 'react'],
+      filename: '../html/toggle.html',
+      title: 'Toggle',
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true
+      },
+      template: path.join(__dirname, './src/html/base.html')
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['loginout', 'react'],
+      filename: '../html/loginout.html',
+      title: 'Loginout',
       minify: {
         collapseWhitespace: false,
         removeComments: true
