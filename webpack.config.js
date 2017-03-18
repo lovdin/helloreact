@@ -9,6 +9,10 @@ module.exports = {
     comment: path.join(__dirname, './src/js/comment.jsx'),
     toggle: path.join(__dirname, './src/js/toggle.jsx'),
     loginout: path.join(__dirname, './src/js/loginout.jsx'),
+    list: path.join(__dirname, './src/js/list.jsx'),
+    form: path.join(__dirname, './src/js/form.jsx'),
+    select: path.join(__dirname, './src/js/select.jsx'),
+    input: path.join(__dirname, './src/js/input.jsx'),
     react: ['react', 'react-dom']
   },
   module: {
@@ -73,6 +77,46 @@ module.exports = {
       chunks: ['loginout', 'react'],
       filename: '../html/loginout.html',
       title: 'Loginout',
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true
+      },
+      template: path.join(__dirname, './src/html/base.html')
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['list', 'react'],
+      filename: '../html/list.html',
+      title: 'List',
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true
+      },
+      template: path.join(__dirname, './src/html/base.html')
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['form', 'react'],
+      filename: '../html/form.html',
+      title: 'Form',
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true
+      },
+      template: path.join(__dirname, './src/html/base.html')
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['select', 'react'],
+      filename: '../html/select.html',
+      title: 'Select',
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true
+      },
+      template: path.join(__dirname, './src/html/base.html')
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['input', 'react'],
+      filename: '../html/input.html',
+      title: 'Input',
       minify: {
         collapseWhitespace: false,
         removeComments: true
