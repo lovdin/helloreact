@@ -13,6 +13,7 @@ module.exports = {
     form: path.join(__dirname, './src/js/form.jsx'),
     select: path.join(__dirname, './src/js/select.jsx'),
     input: path.join(__dirname, './src/js/input.jsx'),
+    temperature: path.join(__dirname, './src/js/temperature.jsx'),
     react: ['react', 'react-dom']
   },
   module: {
@@ -117,6 +118,16 @@ module.exports = {
       chunks: ['input', 'react'],
       filename: '../html/input.html',
       title: 'Input',
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true
+      },
+      template: path.join(__dirname, './src/html/base.html')
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['temperature', 'react'],
+      filename: '../html/temperature.html',
+      title: 'Temperature',
       minify: {
         collapseWhitespace: false,
         removeComments: true
