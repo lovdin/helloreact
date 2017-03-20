@@ -14,6 +14,7 @@ module.exports = {
     select: path.join(__dirname, './src/js/select.jsx'),
     input: path.join(__dirname, './src/js/input.jsx'),
     temperature: path.join(__dirname, './src/js/temperature.jsx'),
+    commerce: path.join(__dirname, './src/js/commerce.jsx'),
     react: ['react', 'react-dom']
   },
   module: {
@@ -128,6 +129,16 @@ module.exports = {
       chunks: ['temperature', 'react'],
       filename: '../html/temperature.html',
       title: 'Temperature',
+      minify: {
+        collapseWhitespace: false,
+        removeComments: true
+      },
+      template: path.join(__dirname, './src/html/base.html')
+    }),
+    new HtmlWebpackPlugin({
+      chunks: ['commerce', 'react'],
+      filename: '../html/commerce.html',
+      title: 'Commerce',
       minify: {
         collapseWhitespace: false,
         removeComments: true
