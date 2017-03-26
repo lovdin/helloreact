@@ -43,7 +43,7 @@ module.exports = {
       minChunks: Infinity
     }),
     new ExtractTextWebpackPlugin({
-      filename: 'css/style.[chunkhash:7].css'
+      filename: 'css/[name].[chunkhash:7].css'
     }),
     new HtmlWebpackPlugin({
       chunks: ['hello', 'react'],

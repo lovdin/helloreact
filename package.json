@@ -5,11 +5,13 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist/html/* dist/js/* dist/css/*",
-    "copycss": "cp src/css/* dist/css",
+    "copycss": "cp src/css/base.css dist/css",
     "pack": "webpack",
     "prepack": "npm run clean",
+    "postpack": "npm run copycss",
     "packprod": "webpack -p",
     "prepackprod": "npm run clean",
+    "postpackprod": "npm run copycss",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
