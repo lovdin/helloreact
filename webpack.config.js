@@ -5,17 +5,17 @@ const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    hello: path.join(__dirname, './src/js/hello.jsx'),
-    tick: path.join(__dirname, './src/js/tick.jsx'),
-    comment: path.join(__dirname, './src/js/comment.jsx'),
-    toggle: path.join(__dirname, './src/js/toggle.jsx'),
-    loginout: path.join(__dirname, './src/js/loginout.jsx'),
-    list: path.join(__dirname, './src/js/list.jsx'),
-    form: path.join(__dirname, './src/js/form.jsx'),
-    select: path.join(__dirname, './src/js/select.jsx'),
-    input: path.join(__dirname, './src/js/input.jsx'),
-    temperature: path.join(__dirname, './src/js/temperature.jsx'),
-    commerce: path.join(__dirname, './src/js/commerce.jsx'),
+    hello: path.resolve(__dirname, 'src/js/hello.jsx'),
+    tick: path.resolve(__dirname, 'src/js/tick.jsx'),
+    comment: path.resolve(__dirname, 'src/js/comment.jsx'),
+    toggle: path.resolve(__dirname, 'src/js/toggle.jsx'),
+    loginout: path.resolve(__dirname, 'src/js/loginout.jsx'),
+    list: path.resolve(__dirname, 'src/js/list.jsx'),
+    form: path.resolve(__dirname, 'src/js/form.jsx'),
+    select: path.resolve(__dirname, 'src/js/select.jsx'),
+    input: path.resolve(__dirname, 'src/js/input.jsx'),
+    temperature: path.resolve(__dirname, 'src/js/temperature.jsx'),
+    commerce: path.resolve(__dirname, 'src/js/commerce.jsx'),
     react: ['react', 'react-dom']
   },
   module: {
@@ -26,7 +26,7 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      include: path.join(__dirname, './src/css'),
+      include: path.resolve(__dirname, 'src/css'),
       use: ExtractTextWebpackPlugin.extract({
         fallback: 'style-loader',
         use: 'css-loader'
@@ -34,8 +34,8 @@ module.exports = {
     }]
   },
   output: {
-    path: path.join(__dirname, './dist/js'),
-    filename: '[name].[chunkhash:7].js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'js/[name].[chunkhash:7].js'
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -43,117 +43,117 @@ module.exports = {
       minChunks: Infinity
     }),
     new ExtractTextWebpackPlugin({
-      filename: '../css/style.[chunkhash:7].css'
+      filename: 'css/style.[chunkhash:7].css'
     }),
     new HtmlWebpackPlugin({
       chunks: ['hello', 'react'],
-      filename: '../html/hello.html',
+      filename: 'html/hello.html',
       title: 'HelloReact',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['tick', 'react'],
-      filename: '../html/tick.html',
+      filename: 'html/tick.html',
       title: 'Tick',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['comment', 'react'],
-      filename: '../html/comment.html',
+      filename: 'html/comment.html',
       title: 'Comment',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['toggle', 'react'],
-      filename: '../html/toggle.html',
+      filename: 'html/toggle.html',
       title: 'Toggle',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['loginout', 'react'],
-      filename: '../html/loginout.html',
+      filename: 'html/loginout.html',
       title: 'Loginout',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['list', 'react'],
-      filename: '../html/list.html',
+      filename: 'html/list.html',
       title: 'List',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['form', 'react'],
-      filename: '../html/form.html',
+      filename: 'html/form.html',
       title: 'Form',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['select', 'react'],
-      filename: '../html/select.html',
+      filename: 'html/select.html',
       title: 'Select',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['input', 'react'],
-      filename: '../html/input.html',
+      filename: 'html/input.html',
       title: 'Input',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['temperature', 'react'],
-      filename: '../html/temperature.html',
+      filename: 'html/temperature.html',
       title: 'Temperature',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     }),
     new HtmlWebpackPlugin({
       chunks: ['commerce', 'react'],
-      filename: '../html/commerce.html',
+      filename: 'html/commerce.html',
       title: 'Commerce',
       minify: {
         collapseWhitespace: false,
         removeComments: true
       },
-      template: path.join(__dirname, './src/html/base.html')
+      template: path.resolve(__dirname, 'src/html/base.html')
     })
   ]
 };
