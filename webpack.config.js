@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -21,9 +22,15 @@ module.exports = {
     rules: [{
       test: /\.(jsx|js)$/,
       exclude: /(node_modules)/,
-      use: [{
-        loader: 'babel-loader'
-      }]
+      use: ['babel-loader']
+    },
+    {
+      test: /\.css$/,
+      include: path.join(__dirname, './src/css'),
+      use: ExtractTextWebpackPlugin.extract({
+        fallback: 'style-loader',
+        use: 'css-loader'
+      })
     }]
   },
   output: {
@@ -34,6 +41,9 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'react',
       minChunks: Infinity
+    }),
+    new ExtractTextWebpackPlugin({
+      filename: '../css/style.[chunkhash:7].css'
     }),
     new HtmlWebpackPlugin({
       chunks: ['hello', 'react'],
